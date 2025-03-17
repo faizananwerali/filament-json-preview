@@ -1,24 +1,24 @@
 @php
     $id = $getId();
+    $options = $entry->getOptions();
+    $jsonData = $getState() ?: [];
+    if (is_string($jsonData)) {
+        $decodedData = json_decode($jsonData, true);
+        if (json_last_error() === JSON_ERROR_NONE) {
+            $jsonData = $decodedData;
+        }
+    } elseif ($jsonData instanceof stdClass) {
+        $jsonData = (array) $jsonData;
+    }
 @endphp
 
 <x-dynamic-component :component="$getEntryWrapperView()" :entry="$entry">
-    <div wire:ignore id="{{$id}}"></div>
+    <div wire:ignore
+         x-data
+         x-init="
+             let editor = new JSONEditor($el, {{ json_encode($options) }});
+             editor.set({{ json_encode($jsonData) }});
+         "
+         id="{{ $id }}">
+    </div>
 </x-dynamic-component>
-
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // create the editor
-        let container = document.getElementById('{{$id}}')
-
-        let editor = new JSONEditor(container, @json($entry->getOptions()))
-        // set json
-        let initialJson = JSON.parse('@json($getState() ?: [])')
-        editor.set(initialJson)
-
-        // get json
-        var updatedJson = editor.get()
-    });
-
-</script>
