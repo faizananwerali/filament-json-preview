@@ -4,9 +4,7 @@
     $jsonData = $getState() ?: [];
     if (is_string($jsonData)) {
         $decodedData = json_decode($jsonData, true);
-        if (json_last_error() === JSON_ERROR_NONE) {
-            $jsonData = $decodedData;
-        }
+        $jsonData = json_last_error() === JSON_ERROR_NONE ? $decodedData : [];
     } elseif ($jsonData instanceof stdClass) {
         $jsonData = (array) $jsonData;
     }
