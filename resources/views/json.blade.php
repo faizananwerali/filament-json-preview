@@ -14,7 +14,8 @@
 
         let editor = new JSONEditor(container, @json($entry->getOptions()))
         // set json
-        let initialJson = JSON.parse('@json($getState() ?: [])')
+        const jsonString = @json(json_encode($getState() ?: []));
+        let initialJson = JSON.parse(jsonString);
         editor.set(initialJson)
 
         // get json
