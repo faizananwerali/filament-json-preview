@@ -1,6 +1,6 @@
 {
     "name": "ahmedabdelaal/filament-json-preview",
-    "description": "Preview Json In Formatted Way",
+    "description": "Preview Json In Formatted Way for Filament",
     "license": "MIT",
     "keywords": [
         "filament",
@@ -10,10 +10,10 @@
         "json",
         "filament-json-preview"
     ],
-    "homepage": "https://github.com/ahmedabdelaal/filament-json-preview",
+    "homepage": "https://github.com/faizananwerali/filament-json-preview",
     "support": {
-        "issues": "https://github.com/ahmedabdelaal/filament-json-preview/issues",
-        "source": "https://github.com/ahmedabdelaal/filament-json-preview"
+        "issues": "https://github.com/faizananwerali/filament-json-preview/issues",
+        "source": "https://github.com/faizananwerali/filament-json-preview"
     },
     "autoload": {
         "psr-4": {
@@ -24,19 +24,22 @@
         {
             "name": "Ahmed Abdelaal",
             "email": "ahmedabdelaal1921@gmail.com"
+        },
+        {
+            "name": "Faizan Anwer Ali",
+            "email": "faizananwer2011@gmail.com"
         }
     ],
     "require": {
         "php": "^8.1|^8.2|^8.3|^8.4",
-        "filament/filament": "^3.0",
-        "filament/forms": "^3.0",
+        "filament/filament": "^3.0|^4.0|^5.0",
+        "filament/infolists": "^3.0|^4.0|^5.0",
+        "filament/support": "^3.0|^4.0|^5.0",
         "spatie/laravel-package-tools": "^1.15.0",
         "illuminate/contracts": "^10.0|^11.0|^12.0"
     },
     "require-dev": {
-        "laravel/pint": "^1.0",
-        "nunomaduro/collision": "^7.9|^8.1",
-        "phpstan/extension-installer": "^1.1"
+        "laravel/pint": "^1.0"
     },
     "scripts": {
         "format": "vendor/bin/pint"
@@ -49,10 +52,5 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true,
-    "config": {
-        "allow-plugins": {
-            "phpstan/extension-installer": true
-        }
-    }
+    "prefer-stable": true
 }

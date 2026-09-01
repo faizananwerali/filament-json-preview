@@ -1,6 +1,6 @@
 @php
     $id = $getId();
-    $options = $entry->getOptions();
+    $options = $getOptions();
     $jsonData = $getState() ?: [];
     if (is_string($jsonData)) {
         $decodedData = json_decode($jsonData, true);
